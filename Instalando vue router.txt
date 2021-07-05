@@ -1,0 +1,15 @@
+Para instalar o ROuter
+
+VocÊ inicia sua aplicação com 
+
+vue create routerguia (router guia é o nome que eu coloquei)
+
+Àpos isso aperte em manual
+
+e selecione com Barra de espaço o router
+
+Aperte "Y" ( tem que ser maisuculo)
+ aperte enter 
+QUando chegar uma parte qeu vai perguntar se qeur que salva a alteração para uma aplicação futura
+vóce digita "N"( tem que maiusculo)
+
