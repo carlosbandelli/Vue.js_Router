@@ -1,0 +1,119 @@
+Criando rotas dinamicas no vue
+Digamos que voce tem um rata chamada "/carlos" e nessa rota voce quer colar
+voce quer colocar uma outra "/" para passar qualquer valor nela
+Voce tem que ir na sua rota onde voce quer adicionaos valores dinamicos
+nesse caso ir ate a pasta router no arquivo index
+e no objeto path:  colocamos "/:dado" no final da rota (para nivel didatico)
+
+{
+    path: '/carlos/:dado', <--- diniamico adicionado
+    name: 'Carlos',
+    component: Cadastro
+  }
+
+Aparti disso poso ir no meu compoenete que comversa com essa rota no caso o compoente cadastro que ta na pasta views
+ e nisso abro a tag de script do Vue
+
+e nela crio o methodo created euq é aquele metodo que é chamado
+toda vez que o compoenete é criado
+
+------------------------------------------------------------------------------
+
+<script>
+
+export default {
+    created(){
+        
+    }
+}
+
+</script>
+------------------------------------------------------------------------------------
+
+e nele faço meu script, no script eu acesso os parametros da routas com o objeto this.$route.params.dado(esse nome dado foi posto no path do index dentro da pasta router) usar o this pois o 
+$router é um objeto de instancia
+
+ou seja voce pode pegar dados da routa dentro do seu componentes
+
+por exemplo vamos utilizar dentro do script um objeto e nele vai receber a string nada
+
+-----------------------------------------------------------------------------------------
+<script>
+
+export default {
+    created(){
+        
+    },
+    data(){
+        return{
+            parametroDaRota: "Nada" <-- objeto criado
+        }
+    }
+}
+
+</script>
+-------------------------------------------------------------------------------------------
+ Dentro do HTML eu posso fazer a reatividade
+
+ficando assim
+------------------------------------------------------------------------
+<template>
+    <div>
+        <input type="text" name="email" id="email" placeholder="Email..."><br>
+        <input type="text" class="button" name="senha" id="senha" placeholder="******"><br>
+        <button id='button'>Testar</button>
+        <h4>{{parametroDaRota}}</h4>
+    </div>
+</template>
+
+--------------------------------------------------------------------------
+E com isso posso fazre assim toda vez que meu compoente for recarregado nessa rota
+eu posso na função chamada created eu faço assim
+
+this.parametroDaRota = this.$route.params.dado
+
+Isso significa que todas vez que meu componente for carregado nessa rota
+ele vai pegar o dado que foi digitado lá naquele parametro vai passar para dentro
+da variavel e eu exibo no HTML
+----------------------------------------------------------------------------------
+<script>
+
+export default {
+    created(){
+        this.parametroDaRota = this.$route.params.dado <--- todas vez qu pega um dado vou exibir no parametroDaRota
+
+    },
+    data(){
+        return{
+            parametroDaRota: "Nada"
+        }
+    }
+}
+
+</script>
+--------------------------------------------------------------------
+
+Criando links dinamicos
+
+na minha aplicação principla eu tenho que ir no router-link do compoente e no "to"
+eu bindo ele com ":" 
+ele nele eu passo um Objeto javascript, onde a primeira coisa que eu devo fazer é utilizar o name da rota
+que esta no arquivo index.js na pasta router
+
+e junto eu passo os parametros dentro de outro objeto
+OU seja estou criando um link para a rota Carlos passando um dado com o valor Bandelli 1
+
+---------------------------------------------------------------------------------------
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link :to="{name: 'Carlos',params: {dado: 'Bandelli1'}}">Saiba mais sobre o Carlos!</router-link> <--- ficando assim
+    </div>
+    <router-view/>
+  </div>
+</template> 
+-------------------------------------------------------------------------------------------
+
+

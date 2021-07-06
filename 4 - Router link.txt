@@ -1,0 +1,24 @@
+Sempre que você quiser criar um link dentro da sua aplicação vue para um rota qualquer
+
+voce vai usar o elemento do HTML chamado router-link:
+-------------------------------------------
+<router-link></router-link>
+-------------------------------------------
+
+Digamos que na minha aplicação eu queria criar um link ora minha rota /carlos
+como faço isso. eel voce pode colocar o texto qeu irá ser linkado no meio dele e adiciono
+dentro da tag "to" qu vai direcionar para a rota que voce quer conforme exemplo
+------------------------------------------------------------------------------------
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/carlos">Saiba mais sobre o Carlos!</router-link> <----- ficando assim
+    </div>
+    <router-view/>
+  </div>
+</template>
+----------------------------------------------------------------------------
+
+

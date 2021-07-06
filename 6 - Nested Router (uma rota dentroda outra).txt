@@ -1,0 +1,36 @@
+Como faço para cria uma rota filha eu vou ate  apasta router no arquivo inde.js
+e na rota que quero que tenha filha,e crio um objeto chamda CHILdren que dentro dela é um array
+e posso definir quantas rotas eu quiser.
+As rotas filhas não podem ter / no começo
+exemplo:
+
+-----------------------------------------------------------
+
+{
+    path: '/carlos', <--- rota pai
+    name: 'Carlos',
+    component: Cadastro,
+    children: [ <--- rota children criada
+      {
+        path: "bandelli", <----- sem " / "
+        name: "Bandelli",
+        component: About
+      }
+    ]
+  }
+-------------------------------------------------------------------------
+Para fazer com que o contudo da routa filha apareça eu preciso que no compoente da rota pai
+no html dele tenha a tag <router-view/>
+Nesse caso o compoente Cadastro.
+
+--------------------------------------------------------------------------------------
+<template>
+    <div>
+        <input type="text" name="email" id="email" placeholder="Email..."><br>
+        <input type="text" class="button" name="senha" id="senha" placeholder="******"><br>
+        <button id='button'>Testar</button>
+        <h4>{{parametroDaRota}}</h4>
+        <router-view/> <------ a tag para exibir no html
+    </div>
+</template>
+---------------------------------------------------------------------

@@ -1,0 +1,46 @@
+Para criar um compoente no vies voce tem que ir ate a pasta views e criar um arquivo com extensão .vue
+NO exempplo vamo fazer um compoente chamda de cadastro
+compoente criado na pasta view:
+----------------------------------------------------------------------
+<template>
+    <div>
+        <input type="text" name="email" id="email" placeholder="Email..."><br>
+        <input type="text" name="senha" id="senha" placeholder="******"><br>
+        <button>Testar</button>
+    </div>
+</template>
+-----------------------------------------------------------------------------
+Àpos isso vá na pasta router no arquvio index.js
+
+E import o component para dentro do arquivo:
+
+
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+import About from '../views/About.vue'
+import Cadastro from '../views/Cadastro.vue' <----- import a darota feito
+
+-----------------------------------------------------------------------------
+
+Apos isso adiciona a rota dentro do array:
+
+--------------------------------------------------------------
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
+  {
+    path: '/carlos', <-------------------- rota Adicionada
+    name: 'Carlos',
+    component: Cadastro <------------ compoente adicionado
+  }
+]
+--------------------------------------------------------------------------

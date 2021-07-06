@@ -1,0 +1,28 @@
+Para criar uma rota voce deve ir ate a pasta router e enesta pasta voce deve vir até o
+arquivo index.js.
+
+NEsse arquivo index.js, nesse array de rotas
+e para cada nova rota que voce for criar, voce vai criar um novov objeto
+e dentro do objeto vai ter o nome da rota des que tenha barra no inicio
+fica assim, o código
+
+---------------------------------------------------------------------------------------
+
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
+  { //rota adicionada
+    path: '/carlos', <---- rota criada
+    name: 'Carlos', <--- nome da rota
+    component: About <---- compoente que vai usar(Como é uma didatica usamos a mesma que a de cima) 
+  }
+]
+---------------------------------------------------------------------------
